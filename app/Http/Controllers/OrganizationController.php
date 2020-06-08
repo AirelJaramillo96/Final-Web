@@ -2,39 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Organization
      */
     public function store(Request $request)
     {
-        //
+        $organization = new Organization();
+        $organization->fill($request->all());
+        $organization->save();
+
+        return $organization;
     }
 
     /**
@@ -45,18 +32,7 @@ class OrganizationController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return Organization::findOrfail($id);
     }
 
     /**
@@ -68,7 +44,12 @@ class OrganizationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $organization = Organization::findOrfail($id);
+        $organization->fill($request->all());
+
+        $organization->save();
+
+        return $organization;
     }
 
     /**
@@ -79,6 +60,9 @@ class OrganizationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $organization = Organization::findOrfail($id);
+        $organization->delete();
+
+        return $organization;
     }
 }

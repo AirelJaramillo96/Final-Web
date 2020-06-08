@@ -19,7 +19,6 @@ class BranchController extends Controller
     {
         $branch = new Branch();
         $branch->fill($request->all());
-        $branch->password = bcrypt('12345678');
         $branch->save();
 
         return $branch;
