@@ -50,7 +50,7 @@ class BranchController extends Controller
 
         $branch->save();
 
-        return $branch;
+        return $branch; 
     }
 
     /**
