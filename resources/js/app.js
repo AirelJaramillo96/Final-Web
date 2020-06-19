@@ -27,6 +27,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import alvue from '@myshell/alvue';
+
+Vue.use(alvue);
+Vue.use(ServerTable);
+
+
 const app = new Vue({
     el: '#app',
 });
