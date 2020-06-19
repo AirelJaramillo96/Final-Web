@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <devices-index></devices-index>
                 </div>
             </div>
         </div>

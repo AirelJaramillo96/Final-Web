@@ -27,12 +27,38 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 import alvue from '@myshell/alvue';
+import { ServerTable } from 'vue-tables-2';
 
 Vue.use(alvue);
 Vue.use(ServerTable);
 
 
+import DevicesIndex from "./components/Devices/DevicesIndex";
+
+
+Vue.prototype.route = window.route;
+Vue.prototype.user = window.user;
+
+Vue.mixin({
+        methods: {
+            route: route,
+
+        },
+        data() {
+            return {
+                auth: window.user
+            }
+        }
+    }
+);
+
 const app = new Vue({
     el: '#app',
+    components:{
+        DevicesIndex
+    }
 });
