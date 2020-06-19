@@ -33,6 +33,9 @@ import 'sweetalert2/src/sweetalert2.scss'
 import alvue from '@myshell/alvue';
 import { ServerTable } from 'vue-tables-2';
 
+import alv from '@myshell/alvue';
+import Vue from 'vue';
+
 Vue.use(alvue);
 Vue.use(ServerTable);
 
@@ -45,7 +48,7 @@ Vue.prototype.user = window.user;
 
 Vue.mixin({
         methods: {
-            route: route,
+            $route: route,
 
         },
         data() {
@@ -55,6 +58,7 @@ Vue.mixin({
         }
     }
 );
+
 
 const app = new Vue({
     el: '#app',

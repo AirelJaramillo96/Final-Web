@@ -67411,7 +67411,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _myshell_alvue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @myshell/alvue */ "./node_modules/@myshell/alvue/src/alv.js");
 /* harmony import */ var vue_tables_2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-tables-2 */ "./node_modules/vue-tables-2/compiled/index.js");
 /* harmony import */ var vue_tables_2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_tables_2__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_Devices_DevicesIndex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Devices/DevicesIndex */ "./resources/js/components/Devices/DevicesIndex.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_Devices_DevicesIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Devices/DevicesIndex */ "./resources/js/components/Devices/DevicesIndex.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -67430,7 +67432,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -67441,14 +67443,16 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 
 
-Vue.use(_myshell_alvue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-Vue.use(vue_tables_2__WEBPACK_IMPORTED_MODULE_3__["ServerTable"]);
 
-Vue.prototype.route = window.route;
-Vue.prototype.user = window.user;
-Vue.mixin({
+
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(_myshell_alvue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_tables_2__WEBPACK_IMPORTED_MODULE_3__["ServerTable"]);
+
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.route = window.route;
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.user = window.user;
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
   methods: {
-    route: route
+    $route: route
   },
   data: function data() {
     return {
@@ -67456,10 +67460,10 @@ Vue.mixin({
     };
   }
 });
-var app = new Vue({
+var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
   el: '#app',
   components: {
-    DevicesIndex: _components_Devices_DevicesIndex__WEBPACK_IMPORTED_MODULE_4__["default"]
+    DevicesIndex: _components_Devices_DevicesIndex__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 
