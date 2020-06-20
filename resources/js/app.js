@@ -42,13 +42,15 @@ Vue.use(ServerTable);
 
 import DevicesIndex from "./components/Devices/DevicesIndex";
 
+import route from 'ziggy';
+import { Ziggy } from './ziggy';
 
 Vue.prototype.route = window.route;
 Vue.prototype.user = window.user;
 
 Vue.mixin({
         methods: {
-            $route: route,
+            route: (name, params, absolute) => route(name, params, absolute, Ziggy),
 
         },
         data() {
