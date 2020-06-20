@@ -22,10 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group([
-    'middleware' => ['api', 'cors'],
-    'prefix' => 'api',
-], function ($router) {
-    //Add you routes here, for example:
+Route::prefix('api')->name('api.')->group(function () {
+
     Route::apiResource('/device', 'DeviceController');
+
 });
