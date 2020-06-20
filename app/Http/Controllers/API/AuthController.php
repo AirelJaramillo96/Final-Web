@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
+use App\Http\Requests\ChangeApiPasswordRequest;
 use App\User;
 use \Laravel\Passport\Http\Controllers\AccessTokenController as ATC;
 use Psr\Http\Message\ServerRequestInterface;
@@ -65,5 +66,17 @@ class AuthController extends ATC
         catch (Exception $e) {
             return response(["message" => "Error interno de servicio"], 401);
         }
+    }
+    public function changePassword(ChangeApiPasswordRequest $request) {
+
+        $user = Auth::user();
+        if($user != null)
+        {
+            $user = User::findOrfail(Auth::user()->id);
+            $user->password = bcrypt($request->new_password);
+            $user->save();
+            return "La contraseña se ha cambiado satisfactoriamente";
+        }
+        return "No se encontro el usuario";
     }
 }

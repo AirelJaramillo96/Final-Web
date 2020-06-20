@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login','API\AuthController@login');
+Route::post('/password/reset','API\AuthController@forgotPassword');
