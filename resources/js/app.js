@@ -40,9 +40,11 @@ Vue.use(alvue);
 Vue.use(ServerTable);
 
 Vue.component('index-device', require('./components/IndexDevice').default);
+Vue.component('create-device', require('./components/CreateDevice').default);
 
 import DevicesIndex from "./components/Devices/DevicesIndex";
 import IndexDevice from "./components/IndexDevice";
+import CreateDevice from "./components/CreateDevice";
 
 
 
@@ -66,7 +68,8 @@ const app = new Vue({
     el: '#app',
     components:{
         DevicesIndex,
-        IndexDevice
+        IndexDevice,
+        CreateDevice
 
     }
 });

@@ -2162,6 +2162,50 @@ function mergeFn (a, b) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateDevice.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreateDevice.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      device: {
+        name: ''
+      }
+    };
+  },
+  created: function created() {},
+  methods: {
+    afterDone: function afterDone(response) {
+      window.location = this.route('home');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Devices/DevicesIndex.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Devices/DevicesIndex.vue?vue&type=script&lang=js& ***!
@@ -47895,6 +47939,97 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateDevice.vue?vue&type=template&id=062ae95d&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreateDevice.vue?vue&type=template&id=062ae95d& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "alv-form",
+    {
+      ref: "form",
+      attrs: {
+        action: _vm.$route("api.device.store"),
+        method: "post",
+        "data-object": _vm.device
+      },
+      on: { "after-done": _vm.afterDone }
+    },
+    [
+      _c("diV", { staticClass: "form-group" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-12",
+            staticStyle: { "text-align-last": "center" }
+          },
+          [
+            _c("label", { attrs: { for: "name" } }, [_vm._v("Nombre *")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.device.name,
+                  expression: "device.name"
+                }
+              ],
+              attrs: {
+                type: "name",
+                id: "name",
+                name: "name",
+                placeholder: "Nombre del dispositivo"
+              },
+              domProps: { value: _vm.device.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.device, "name", $event.target.value)
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-md-12",
+            staticStyle: { "text-align-last": "right" }
+          },
+          [
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Guardar")]
+            )
+          ]
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Devices/DevicesIndex.vue?vue&type=template&id=3a438b72&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Devices/DevicesIndex.vue?vue&type=template&id=3a438b72& ***!
@@ -67591,6 +67726,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components_Devices_DevicesIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Devices/DevicesIndex */ "./resources/js/components/Devices/DevicesIndex.vue");
 /* harmony import */ var _components_IndexDevice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/IndexDevice */ "./resources/js/components/IndexDevice.vue");
+/* harmony import */ var _components_CreateDevice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/CreateDevice */ "./resources/js/components/CreateDevice.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -67625,6 +67761,8 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('example-component', __webp
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(_myshell_alvue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_tables_2__WEBPACK_IMPORTED_MODULE_3__["ServerTable"]);
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('index-device', __webpack_require__(/*! ./components/IndexDevice */ "./resources/js/components/IndexDevice.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('create-device', __webpack_require__(/*! ./components/CreateDevice */ "./resources/js/components/CreateDevice.vue")["default"]);
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.route = window.route;
@@ -67643,7 +67781,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
   el: '#app',
   components: {
     DevicesIndex: _components_Devices_DevicesIndex__WEBPACK_IMPORTED_MODULE_5__["default"],
-    IndexDevice: _components_IndexDevice__WEBPACK_IMPORTED_MODULE_6__["default"]
+    IndexDevice: _components_IndexDevice__WEBPACK_IMPORTED_MODULE_6__["default"],
+    CreateDevice: _components_CreateDevice__WEBPACK_IMPORTED_MODULE_7__["default"]
   }
 });
 
@@ -67683,7 +67822,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-// import Echo from 'laravel-echo';
+
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+} // import Echo from 'laravel-echo';
 // window.Pusher = require('pusher-js');
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
@@ -67691,6 +67843,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateDevice.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/CreateDevice.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreateDevice_vue_vue_type_template_id_062ae95d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateDevice.vue?vue&type=template&id=062ae95d& */ "./resources/js/components/CreateDevice.vue?vue&type=template&id=062ae95d&");
+/* harmony import */ var _CreateDevice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateDevice.vue?vue&type=script&lang=js& */ "./resources/js/components/CreateDevice.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreateDevice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreateDevice_vue_vue_type_template_id_062ae95d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreateDevice_vue_vue_type_template_id_062ae95d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CreateDevice.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateDevice.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/CreateDevice.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDevice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CreateDevice.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateDevice.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDevice_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateDevice.vue?vue&type=template&id=062ae95d&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/CreateDevice.vue?vue&type=template&id=062ae95d& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDevice_vue_vue_type_template_id_062ae95d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CreateDevice.vue?vue&type=template&id=062ae95d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateDevice.vue?vue&type=template&id=062ae95d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDevice_vue_vue_type_template_id_062ae95d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateDevice_vue_vue_type_template_id_062ae95d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

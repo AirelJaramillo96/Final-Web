@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 
 class DeviceController extends Controller
@@ -29,6 +30,8 @@ class DeviceController extends Controller
     {
         $device = new Device();
         $device->fill($request->all());
+        $device->user_id = Auth::user()->id;
+        $device->status = 0;
         $device->save();
 
         return $device;
