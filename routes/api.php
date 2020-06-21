@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login','API\AuthController@login');
 Route::post('/password/change','API\AuthController@changePassword');
+Route::get('/all/devices', 'API\DeviceControllerAPI@index');
