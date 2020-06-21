@@ -3,6 +3,10 @@
     <v-server-table :url="$route('api.device.index')"   :columns="columns" ref="table" :options="options" :filterByColumn="true" >
         <div slot="actions" slot-scope="props" class="action-buttons">
             <div class="btn-group ">
+                <button title="Status" :data-id="props.row.id" @click="status(props.row.id)"
+                        class="btn btn-circle btn-sm btn-warning ">
+                    <i class="fa fa-check"></i>
+                </button>
                 <a :href="$route('edit.device', props.row.id)">
                     <button title="Editar" :data-id="props.row.id" type="button" class="btn btn-circle btn-sm btn-info">
                         <i class="fa fa-edit"></i></button>
@@ -80,6 +84,30 @@
                     }
                 });
             },
+            status(id) {
+                Swal.fire({
+                    title: '¿Estas Seguro?',
+                    text: "¿Desea habilitar este dispositivo?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.put(route('api.device.status', [id]), {}).then(() => {
+                            this.$refs.table.refresh();
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
+                        Swal.fire(
+                            'Éxito!',
+                            'El dispositivo ha sido actualizado.',
+                            'success'
+                        )
+                    }
+                });
+            }
 
         }
     }

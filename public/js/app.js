@@ -2413,6 +2413,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2470,6 +2474,28 @@ __webpack_require__.r(__webpack_exports__);
             console.log(error);
           });
           sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Éxito!', 'El registro se eliminó correctamente.', 'success');
+        }
+      });
+    },
+    status: function status(id) {
+      var _this2 = this;
+
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        title: '¿Estas Seguro?',
+        text: "¿Desea habilitar este dispositivo?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si!'
+      }).then(function (result) {
+        if (result.value) {
+          axios.put(route('api.device.status', [id]), {}).then(function () {
+            _this2.$refs.table.refresh();
+          })["catch"](function (error) {
+            console.log(error);
+          });
+          sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('Éxito!', 'El dispositivo ha sido actualizado.', 'success');
         }
       });
     }
@@ -48342,6 +48368,20 @@ var render = function() {
         fn: function(props) {
           return _c("div", { staticClass: "action-buttons" }, [
             _c("div", { staticClass: "btn-group " }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-circle btn-sm btn-warning ",
+                  attrs: { title: "Status", "data-id": props.row.id },
+                  on: {
+                    click: function($event) {
+                      return _vm.status(props.row.id)
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fa fa-check" })]
+              ),
+              _vm._v(" "),
               _c(
                 "a",
                 { attrs: { href: _vm.$route("edit.device", props.row.id) } },

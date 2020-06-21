@@ -23,5 +23,6 @@ Auth::routes();
 Route::prefix('api')->name('api.')->group(function () {
 
     Route::apiResource('/device', 'DeviceController');
+    Route::put('device/status/{id}', 'DeviceController@status')->name('device.status');
 
 });

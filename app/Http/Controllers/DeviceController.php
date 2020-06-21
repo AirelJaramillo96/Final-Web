@@ -80,4 +80,16 @@ class DeviceController extends Controller
 
         return $device;
     }
+
+    public function status($id)
+    {
+        $device = Device::findOrfail($id);
+        if ($device->status === 0)
+            $device->status = 1;
+        else
+            $device->status = 0;
+        $device->save();
+
+        return $device;
+    }
 }
