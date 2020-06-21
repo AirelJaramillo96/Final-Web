@@ -39,19 +39,19 @@ import Vue from 'vue';
 Vue.use(alvue);
 Vue.use(ServerTable);
 
+Vue.component('index-device', require('./components/IndexDevice').default);
 
 import DevicesIndex from "./components/Devices/DevicesIndex";
+import IndexDevice from "./components/IndexDevice";
 
-import route from 'ziggy';
-import { Ziggy } from './ziggy';
+
 
 Vue.prototype.route = window.route;
 Vue.prototype.user = window.user;
 
 Vue.mixin({
         methods: {
-            route: (name, params, absolute) => route(name, params, absolute, Ziggy),
-
+            $route: route,
         },
         data() {
             return {
@@ -65,6 +65,8 @@ Vue.mixin({
 const app = new Vue({
     el: '#app',
     components:{
-        DevicesIndex
+        DevicesIndex,
+        IndexDevice
+
     }
 });
