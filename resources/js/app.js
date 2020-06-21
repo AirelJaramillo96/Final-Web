@@ -41,6 +41,7 @@ Vue.use(ServerTable);
 
 Vue.component('index-device', require('./components/IndexDevice').default);
 Vue.component('create-device', require('./components/CreateDevice').default);
+Vue.component('edit-device',require('./components/EditDevice').default);
 
 import DevicesIndex from "./components/Devices/DevicesIndex";
 import IndexDevice from "./components/IndexDevice";

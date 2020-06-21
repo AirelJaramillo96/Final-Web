@@ -14,7 +14,7 @@ class DeviceController extends Controller
     {
 
 
-        $data = Device::all();
+        $data = Device::where('user_id', Auth::user()->id)->get();
 
         $count = $data->count();
         return compact('data', 'count');

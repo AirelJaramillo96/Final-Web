@@ -3,11 +3,7 @@
     <v-server-table :url="$route('api.device.index')"   :columns="columns" ref="table" :options="options" :filterByColumn="true" >
         <div slot="actions" slot-scope="props" class="action-buttons">
             <div class="btn-group ">
-                <a href="#">
-                    <button title="Ver" :data-id="props.row.id" type="button" class="btn btn-circle btn-sm btn-success">
-                        <i class="fa fa-eye"></i></button>
-                </a>
-                <a href="#">
+                <a :href="$route('edit.device', props.row.id)">
                     <button title="Editar" :data-id="props.row.id" type="button" class="btn btn-circle btn-sm btn-info">
                         <i class="fa fa-edit"></i></button>
                 </a>
@@ -33,7 +29,7 @@
                     headings: {
                         id: "ID",
                         name: "Nombre",
-                        stateName: "Estado",
+                        status: "Estado",
                         actions: "Acciones",
                     },
                     pagination: {
@@ -55,7 +51,7 @@
                     }
                 },
                 actionsColumn: "actions",
-                columns: ['id', 'name', 'state_name', 'actions'],
+                columns: ['id', 'name', 'status', 'actions'],
             }
         },
         methods: {
@@ -70,7 +66,12 @@
                     confirmButtonText: 'Si, Eliminar!'
                 }).then((result) => {
                     if (result.value) {
-
+                        axios.delete(route('api.device.destroy', [id]), {
+                        }).then( () => {
+                            this.$refs.table.refresh();
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
                         Swal.fire(
                             'Éxito!',
                             'El registro se eliminó correctamente.',
