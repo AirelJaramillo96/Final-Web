@@ -13,7 +13,6 @@
                 </a>
                 <button title="Eliminar" :data-id="props.row.id" @click="eliminarRegistro(props.row.id)"
                         class="btn btn-circle btn-sm btn-danger "><i class="fa fa-trash"></i></button>
-
             </div>
         </div>
     </v-server-table>
