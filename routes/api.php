@@ -22,6 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login','API\AuthController@login');
 Route::get('/all/devices', 'API\DeviceControllerAPI@index');
 Route::post('/password/reset','API\AuthController@forgotPassword');
+Route::put('/status/device', 'API\DeviceControllerAPI@change_value');
 
 Route::middleware('auth:api')->group(function()
 {
