@@ -16,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+
 });
 
 Route::post('/login','API\AuthController@login');
-Route::post('/password/change','API\AuthController@changePassword');
 Route::get('/all/devices', 'API\DeviceControllerAPI@index');
+Route::post('/password/reset','API\AuthController@forgotPassword');
+
+Route::middleware('auth:api')->group(function()
+{
+    Route::post('/password/change','API\AuthController@changePassword');
+});

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Http\Requests\ChangePasswordRequest;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -67,5 +71,43 @@ class UserController extends Controller
         $user->delete();
 
         return $user;
+    }
+
+
+    public function resetPassword($token)
+    {
+        $saveTokens = DB::table('password_resets')->where('deleted_at',null)->get();
+        foreach($saveTokens as $saveToken)
+        {
+            if(Hash::check($token,$saveToken->token))
+            {
+                $confirm = $saveToken;
+                break;
+            }
+        }
+        if(isset($confirm))
+        {
+            $user = User::where('email',$confirm->email)->first();
+
+            return view('emails.resetPassword',compact(
+                'user'
+            ));
+        }
+        return route('home');
+    }
+
+
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        $user = User::findOrfail($request->id);
+
+        $saveTokens = DB::table('password_resets')->where('email',$user->email)->update(['deleted_at'=>Carbon::now()]);
+
+        $user->password=bcrypt($request->password);
+
+        $user->save();
+
+        return view('emails.passwordSuccesfuly');
+
     }
 }

@@ -29,6 +29,7 @@ class OldPasswordRule implements Rule
     public function passes($attribute, $value)
     {
         $user = Auth::guard("api")->user();
+
         if(Hash::check($value, $user->password))
             return true;
         return false;

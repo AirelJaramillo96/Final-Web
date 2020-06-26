@@ -20,9 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::get('users/password/{token}','UserController@resetPassword')->name('users.reset.password');
+Route::post('users/password','UserController@changePassword')->name('users.change.password');
+
 Route::prefix('api')->name('api.')->group(function () {
 
     Route::apiResource('/device', 'DeviceController');
     Route::put('device/status/{id}', 'DeviceController@status')->name('device.status');
+
 
 });

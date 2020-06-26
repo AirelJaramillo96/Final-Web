@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 use App\Http\Requests\ChangeApiPasswordRequest;
+use App\Http\Requests\ForgotPasswordRequest;
+use App\Notifications\ForgotPassword;
 use App\User;
 use \Laravel\Passport\Http\Controllers\AccessTokenController as ATC;
 use Psr\Http\Message\ServerRequestInterface;
@@ -67,6 +69,19 @@ class AuthController extends ATC
             return response(["message" => "Error interno de servicio"], 401);
         }
     }
+    public function forgotPassword(ForgotPasswordRequest $request) {
+
+
+
+        $user = User::where('email',$request->email)->first();
+        if($user != null)
+        {
+
+            $user->notify(new ForgotPassword());
+        }
+        return "Se ha enviado un correo a la dirección";
+    }
+
     public function changePassword(ChangeApiPasswordRequest $request) {
 
         $user = Auth::user();
