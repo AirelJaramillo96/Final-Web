@@ -84,14 +84,22 @@ class AuthController extends ATC
 
     public function changePassword(ChangeApiPasswordRequest $request) {
 
-        $user = Auth::user();
-        if($user != null)
-        {
-            $user = User::findOrfail(Auth::user()->id);
-            $user->password = bcrypt($request->new_password);
-            $user->save();
-            return "La contraseña se ha cambiado satisfactoriamente";
+
+        if ($request->new_password_confirmation === $request->new_password) {
+            $user = User::where('email', $request->email)->first();
+            if($user != null)
+            {
+                $user->password = bcrypt($request->new_password);
+                $user->save();
+                return "La contraseña se ha cambiado satisfactoriamente";
+            } else {
+                return "No se encontro el usuario";
+            }
+        } else {
+            return "Las contraseñas no coinciden";
         }
-        return "No se encontro el usuario";
+
+
+
     }
 }
