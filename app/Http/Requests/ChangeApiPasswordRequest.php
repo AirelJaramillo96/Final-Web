@@ -25,8 +25,9 @@ class ChangeApiPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'old_password'              => ['required','string','max:255', new OldPasswordRule()],
-            'new_password'              => 'required|string|max:255|confirmed|min:8',
+            'email'                     => 'required|string|max:255',
+            'old_password'              => 'required|string|min:8|max:255',
+            'new_password'              => 'required|string|min:8|max:255|confirmed',
             'new_password_confirmation' => 'required|string|max:255|min:8'
         ];
     }
